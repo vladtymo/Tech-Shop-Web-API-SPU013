@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "First_Web_API_app", "First_Web_API_app\First_Web_API_app.csproj", "{935DCAE0-BAEB-4EC9-9603-6CD7E4473DE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "First_Web_API_app", "First_Web_API_app\First_Web_API_app.csproj", "{935DCAE0-BAEB-4EC9-9603-6CD7E4473DE1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{F41FD6CE-B455-487B-AE0C-5AC9E2FC2B1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{56B43194-99AC-481D-B1FF-120E40A3493B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F41FD6CE-B455-487B-AE0C-5AC9E2FC2B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F41FD6CE-B455-487B-AE0C-5AC9E2FC2B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F41FD6CE-B455-487B-AE0C-5AC9E2FC2B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B43194-99AC-481D-B1FF-120E40A3493B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B43194-99AC-481D-B1FF-120E40A3493B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B43194-99AC-481D-B1FF-120E40A3493B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B43194-99AC-481D-B1FF-120E40A3493B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

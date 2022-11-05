@@ -1,7 +1,9 @@
-﻿using Data;
+﻿using BusinessLogic.Interfaces;
+using Data;
 using Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace First_Web_API_app.Controllers
 {
@@ -10,17 +12,19 @@ namespace First_Web_API_app.Controllers
     public class LaptopsController : ControllerBase
     {
         private readonly TechShopDbContext context;
+        private readonly ILaptopService laptopService;
 
-        public LaptopsController(TechShopDbContext context)
+        public LaptopsController(TechShopDbContext context, ILaptopService laptopService)
         {
             this.context = context;
+            this.laptopService = laptopService;
         }
 
         //[HttpGet("/all")] // GET: ~/all
         [HttpGet("all")]    // GET: ~/api/laptops/all
         public IActionResult GetAll()
         {
-            return Ok(context.Laptops.ToList());
+            return Ok(laptopService.GetAll());
         }
 
         // put data to action
@@ -30,7 +34,7 @@ namespace First_Web_API_app.Controllers
         [HttpGet("get/{id}")]
         public IActionResult Get([FromRoute] int id)
         {
-            var laptop = context.Laptops.Find(id);
+            var laptop = laptopService.GetById(id);
 
             if (laptop == null) return NotFound();
 
@@ -40,8 +44,7 @@ namespace First_Web_API_app.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] Laptop laptop)
         {
-            context.Laptops.Add(laptop);
-            context.SaveChanges();
+            laptopService.Create(laptop);
 
             return Ok();
         }
@@ -49,11 +52,7 @@ namespace First_Web_API_app.Controllers
         [HttpPut]
         public IActionResult Edit([FromBody] Laptop laptop)
         {
-            if (context.Laptops.Find(laptop.Id) == null)
-                return BadRequest();
-
-            context.Laptops.Update(laptop);
-            context.SaveChanges();
+            laptopService.Edit(laptop);
 
             return Ok();
         }
@@ -61,12 +60,7 @@ namespace First_Web_API_app.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete([FromRoute] int id)
         {
-            var laptop = context.Laptops.Find(id);
-
-            if (laptop == null) return NotFound();
-
-            context.Laptops.Remove(laptop);
-            context.SaveChanges();
+            laptopService.Delete(id);
 
             return Ok();
         }
