@@ -1,4 +1,5 @@
-﻿using BusinessLogic.Interfaces;
+﻿using BusinessLogic.DTOs;
+using BusinessLogic.Interfaces;
 using Data;
 using Data.Models;
 using Microsoft.AspNetCore.Http;
@@ -42,7 +43,7 @@ namespace First_Web_API_app.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Laptop laptop)
+        public IActionResult Create([FromBody] LaptopDto laptop)
         {
             laptopService.Create(laptop);
 
@@ -50,7 +51,7 @@ namespace First_Web_API_app.Controllers
         }
 
         [HttpPut]
-        public IActionResult Edit([FromBody] Laptop laptop)
+        public IActionResult Edit([FromBody] LaptopDto laptop)
         {
             laptopService.Edit(laptop);
 

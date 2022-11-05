@@ -1,13 +1,14 @@
-﻿using Data.Models;
+﻿using BusinessLogic.DTOs;
+using Data.Models;
 
 namespace BusinessLogic.Interfaces
 {
     public interface ILaptopService
     {
-        IEnumerable<Laptop> GetAll();
-        Laptop GetById(int id);
-        void Create(Laptop laptop);
-        void Edit(Laptop laptop);
+        IEnumerable<LaptopDto> GetAll();
+        LaptopDto? GetById(int id);
+        void Create(LaptopDto laptop);
+        void Edit(LaptopDto laptop);
         void Delete(int id);
     }
 }

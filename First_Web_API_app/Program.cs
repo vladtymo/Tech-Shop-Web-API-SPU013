@@ -15,6 +15,9 @@ builder.Services.AddDbContext<TechShopDbContext>(options => options.UseSqlServer
 // add custom services
 builder.Services.AddScoped<ILaptopService, LaptopService>();
 
+// add AutoMapper service
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
