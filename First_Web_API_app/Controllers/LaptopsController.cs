@@ -31,7 +31,7 @@ namespace First_Web_API_app.Controllers
         // put data to action
         // 1 - [FromQuery]: ~/api/laptops/get?id=2
         // 2 - [FromRoute]: ~/api/laptops/get/2
-
+    
         [HttpGet("get/{id}")]
         public IActionResult Get([FromRoute] int id)
         {
@@ -45,6 +45,9 @@ namespace First_Web_API_app.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] LaptopDto laptop)
         {
+            // check metadata validations
+            if (!ModelState.IsValid) return BadRequest();
+
             laptopService.Create(laptop);
 
             return Ok();
@@ -53,6 +56,8 @@ namespace First_Web_API_app.Controllers
         [HttpPut]
         public IActionResult Edit([FromBody] LaptopDto laptop)
         {
+            if (!ModelState.IsValid) return BadRequest();
+
             laptopService.Edit(laptop);
 
             return Ok();
