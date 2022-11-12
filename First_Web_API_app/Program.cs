@@ -3,6 +3,7 @@ using BusinessLogic.Interfaces;
 using Data;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +15,14 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<TechShopDbContext>(options => options.UseSqlServer(connectionStr));
 
+// add Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<TechShopDbContext>()
+    .AddDefaultTokenProviders();
+
 // add custom services
 builder.Services.AddScoped<ILaptopService, LaptopService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 // add AutoMapper service
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

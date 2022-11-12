@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.DTOs;
 using Data.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ namespace BusinessLogic.Profiles
 
             CreateMap<LaptopDto, Laptop>()
                 .ForMember(d => d.OperationSystemId, opt => opt.MapFrom(s => s.OSId));
+
+            CreateMap<UserDto, IdentityUser>()
+                .ForMember(d => d.UserName, opt => opt.MapFrom(s => s.Email))
+                .ForMember(d => d.Id, opt => opt.Ignore());
         }
     }
 }
