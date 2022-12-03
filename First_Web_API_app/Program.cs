@@ -48,7 +48,7 @@ app.UseHttpsRedirection();
 
 app.UseCors(
     builder => builder
-        .WithOrigins("http://localhost:4200")
+        .WithOrigins("http://localhost:4200", "https://gentle-sand-0fc9a2010.2.azurestaticapps.net")
         .SetIsOriginAllowedToAllowWildcardSubdomains()
         .AllowAnyMethod()
         .AllowAnyHeader()
