@@ -14,8 +14,8 @@ namespace Data
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    base.OnConfiguring(optionsBuilder);
-
-        //    optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TechShopApiDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        //    string connStr = "Server=tcp:myserver4343.database.windows.net,1433;Initial Catalog=laptops_db;Persist Security Info=False;User ID=super_user;Password=Abc123456;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        //    optionsBuilder.UseSqlServer(connStr);
         //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

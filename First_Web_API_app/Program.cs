@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-string connectionStr = builder.Configuration.GetConnectionString("LocalDb");
+string connectionStr = builder.Configuration.GetConnectionString("AzureDb");
 
 // Add services to the container.
 builder.Services.AddControllers();
